@@ -1,0 +1,3 @@
+rootProject.name = 'SpringCloud-Feign'
+include "cms"
+include "feignclient"

@@ -1,0 +1,24 @@
+server:
+  port: 8851
+spring:
+  application:
+    name: cms
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        prefix: ${spring.application.name}
+      discovery:
+        server-addr: localhost:8848
+ribbon:
+  #http请求连接建立超时时间（ms）
+  ConnectTimeout: 10000
+  #http请求处理超时时间（ms）
+  ReadTimeout: 15000
+  #默认重试次数
+  MaxAutoRetries: 1
+  #默认尝试的实例数
+  MaxAutoRetriesNextServer: 4

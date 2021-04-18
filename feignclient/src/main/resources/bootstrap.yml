@@ -1,0 +1,27 @@
+server:
+  port: 8850
+spring:
+  application:
+    name: feign-client
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        prefix: ${spring.application.name}
+      discovery:
+        server-addr: localhost:8848
+
+#http请求客户端负载均衡各项配置
+feign:
+  #开启客户端熔断机制
+  hystrix:
+    enabled: true
+  #开启请求和响应的压缩机制（GZIP）
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
